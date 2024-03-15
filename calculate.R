@@ -23,11 +23,11 @@ clean_data <- clean_data |> mutate(
     wwi = average_waist / sqrt(average_weight)
 )
 
-# get some diagnostic information on the dataset before we write it
-summary(clean_data)
-str(clean_data)
-head(clean_data)
-problems(clean_data)
+# Split the data by gender, assuming you have a gender column
+male_clean_data <- clean_data |> filter(gender == "Male")
+female_clean_data <- clean_data |> filter(gender == "Female")
 
-# write the dataset to a new csv file!
+# write the datasets to new csv files!
 write_csv(clean_data, "data_and_output/calculated_data.csv", na = "")
+write_csv(male_clean_data, "data_and_output/male_calculated_data.csv", na = "")
+write_csv(female_clean_data, "data_and_output/female_calculated_data.csv", na = "")
