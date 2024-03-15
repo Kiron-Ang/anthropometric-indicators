@@ -30,4 +30,4 @@ head(clean_data)
 problems(clean_data)
 
 # write the dataset to a new csv file!
-write_csv(clean_data, "calculated_data.csv", na = "")
+write_csv(clean_data, "data_and_output/calculated_data.csv", na = "")
