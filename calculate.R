@@ -33,6 +33,16 @@ healthy_weight_clean_data <- clean_data |> filter(bmi >= 18.5 & bmi < 25.0)
 overweight_clean_data <- clean_data |> filter(bmi >= 25 & bmi < 30.0)
 obese_clean_data <- clean_data |> filter(bmi > 30)
 
+# Also print out the weight categories by gender!
+print("Underweight")
+print(clean_data |> filter(bmi < 18.5) |> count(gender))
+print("Healthy Weight")
+print(clean_data |> filter(bmi >= 18.5 & bmi < 25.0) |> count(gender))
+print("Overweight")
+print(clean_data |> filter(bmi >= 25 & bmi < 30.0) |> count(gender))
+print("Obese")
+print(clean_data |> filter(bmi > 30) |> count(gender))
+
 # write the datasets to new csv files!
 write_csv(clean_data, "data_and_output/calculated_data.csv", na = "")
 write_csv(male_clean_data, "data_and_output/male_calculated_data.csv", na = "")
