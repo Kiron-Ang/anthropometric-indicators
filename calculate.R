@@ -9,4 +9,5 @@ clean_data <- clean_data |> janitor::clean_names()
 
 clean_data["average_height"] <- rowMeans(clean_data[c("height_cm_trial_1", "height_cm_trial_2")], na.rm = TRUE)
 
-clean_data
+print(clean_data)
+problems(clean_data)
