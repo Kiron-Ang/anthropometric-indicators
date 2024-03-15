@@ -17,9 +17,9 @@ clean_data["average_waist"] <- rowMeans(clean_data[c("waist_cm_trial_1", "waist_
 
 # Use mutate to calculate anthropometric indicators!
 clean_data <- clean_data |> mutate(
-    bmi = average_weight / ((average_height / 100) ^ 2)
-    whr = average_waist / average_hip
-    whtr = average_waist / average_height
+    bmi = average_weight / ((average_height / 100) ^ 2),
+    whr = average_waist / average_hip,
+    whtr = average_waist / average_height,
     wwi = average_waist / sqrt(average_weight)
 )
 

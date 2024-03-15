@@ -17,3 +17,4 @@ Versions:
 - Write a script to take the average of several repeated measurements of weight, height, waist circumference, and hip circumference and then calculate BMI/WHR/WHtR/WWI.
 - Write a script to generate histograms.
 - Write a script to generate summary statistics.
+- Create functions for everything!!!
