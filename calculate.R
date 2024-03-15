@@ -27,7 +27,18 @@ clean_data <- clean_data |> mutate(
 male_clean_data <- clean_data |> filter(gender == "Male")
 female_clean_data <- clean_data |> filter(gender == "Female")
 
+# Split the data by CDC weight categories, assuming you have a bmi column
+underweight_clean_data <- clean_data |> filter(bmi < 18.5)
+healthy_weight_clean_data <- clean_data |> filter(bmi >= 18.5 & bmi < 25.0)
+overweight_clean_data <- clean_data |> filter(bmi >= 25 & bmi < 30.0)
+obese_clean_data <- clean_data |> filter(bmi > 30)
+
 # write the datasets to new csv files!
 write_csv(clean_data, "data_and_output/calculated_data.csv", na = "")
 write_csv(male_clean_data, "data_and_output/male_calculated_data.csv", na = "")
 write_csv(female_clean_data, "data_and_output/female_calculated_data.csv", na = "")
+write_csv(underweight_clean_data, "data_and_output/underweight_calculated_data.csv", na = "")
+write_csv(healthy_weight_clean_data, "data_and_output/healthy_weight_calculated_data.csv", na = "")
+write_csv(overweight_clean_data, "data_and_output/overweight_calculated_data.csv", na = "")
+write_csv(obese_clean_data, "data_and_output/obese_calculated_data.csv", na = "")
+
