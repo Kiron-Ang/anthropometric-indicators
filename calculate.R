@@ -23,6 +23,9 @@ clean_data <- clean_data |> mutate(
     wwi = average_waist / sqrt(average_weight)
 )
 
+# Remove anyone with an HIV diagnosis!
+clean_data <- clean_data |> filter(hiv_diagnosis == "Negative")
+
 # Split the data by gender, assuming you have a gender column
 male_clean_data <- clean_data |> filter(gender == "Male")
 female_clean_data <- clean_data |> filter(gender == "Female")
@@ -43,12 +46,16 @@ print(clean_data |> filter(bmi >= 25 & bmi < 30.0) |> count(gender))
 print("Obese")
 print(clean_data |> filter(bmi > 30) |> count(gender))
 
+glimpse(clean_data)
+
 # write the datasets to new csv files!
 write_csv(clean_data, "data_and_output/calculated_data.csv", na = "")
-write_csv(male_clean_data, "data_and_output/male_calculated_data.csv", na = "")
-write_csv(female_clean_data, "data_and_output/female_calculated_data.csv", na = "")
-write_csv(underweight_clean_data, "data_and_output/underweight_calculated_data.csv", na = "")
-write_csv(healthy_weight_clean_data, "data_and_output/healthy_weight_calculated_data.csv", na = "")
-write_csv(overweight_clean_data, "data_and_output/overweight_calculated_data.csv", na = "")
-write_csv(obese_clean_data, "data_and_output/obese_calculated_data.csv", na = "")
+
+# write_csv(male_clean_data, "data_and_output/male_calculated_data.csv", na = "")
+# write_csv(female_clean_data, "data_and_output/female_calculated_data.csv", na = "")
+# write_csv(underweight_clean_data, "data_and_output/underweight_calculated_data.csv", na = "")
+# write_csv(healthy_weight_clean_data, "data_and_output/healthy_weight_calculated_data.csv", na = "")
+# write_csv(overweight_clean_data, "data_and_output/overweight_calculated_data.csv", na = "")
+# write_csv(obese_clean_data, "data_and_output/obese_calculated_data.csv", na = "")
+
 
